@@ -2,6 +2,9 @@ from flask.ext.login import LoginManager, login_required
 from . import db
 
 from datetime import datetime
+from flask.ext.bcrypt import Bcrypt
+
+crypt = Bcrypt()
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -14,7 +17,7 @@ class User(db.Model):
 
     def __init__(self, username, password, email):
         self.username = username
-        self.password = password
+        self.set_password(password)
         self.email = email
         self.registered_on = datetime.utcnow()
 
@@ -32,3 +35,6 @@ class User(db.Model):
 
     def get_id(self):
         return unicode(self.id)
+
+    def set_password(self,password):
+        self.password = crypt.generate_password_hash(password)
