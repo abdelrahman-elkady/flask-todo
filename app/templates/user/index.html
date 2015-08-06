@@ -1,0 +1,7 @@
+{%extends 'layouts/base.html'%}
+{%block body%}
+<h1 class='text-center'>INDEX</h1>
+  {% for user in users %}
+    <p class='text-center'>{{user.email}}</p>
+  {%endfor%}
+{%endblock%}

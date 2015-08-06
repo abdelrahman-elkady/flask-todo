@@ -1,0 +1,19 @@
+{
+  "name": "flask_todo",
+  "version": "0.1.0",
+  "authors": [
+    "kady <elkadyabdelrahman@gmail.com>"
+  ],
+  "description": "a simple todo list manager built with flask",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "foundation": "~5.5.2"
+  }
+}

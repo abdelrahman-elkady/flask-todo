@@ -1,0 +1,29 @@
+{%extends 'layouts/base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% from 'helpers/_forms.html' import render_field %}
+
+
+{% block body %}
+
+  <div class="row">
+    <div class="eight columns centered">
+      <h2 class='text-center'>Sign Up</h2>
+
+      <form action="" method="post">
+        {{form.csrf_token}}
+
+          <div class="row">
+            <div class="large-12 columns">
+              {%for field in form if field.widget.input_type != 'hidden'%}
+                {{render_field(field)}}
+              {%endfor%}
+            </div>
+          </div>
+
+
+      <input type="submit" value="Register" class="button">
+      </form>
+      <!-- /form -->
+    </div>
+  </div>
+{% endblock %}
