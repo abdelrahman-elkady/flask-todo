@@ -1,0 +1,43 @@
+<nav class="top-bar" data-topbar role="navigation">
+
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Flask-Todo</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+  <!-- /.title-area -->
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li>
+        <a href="#" class="nav-user-greet">
+          {% if current_user.is_authenticated() %}
+            Hi {{ current_user.username }}!
+          {% endif %}
+        </a>
+      </li>
+
+      <li class="active">
+
+        {% if current_user.is_authenticated() %}
+          <a href="{{url_for('user.logout')}}">Logout</a>
+        {% else %}
+          <a href="{{url_for('user.login')}}">Sign in</a>
+        {% endif %}
+
+      </li>
+
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#"></a></li>
+    </ul>
+  </section>
+  <!-- /.top-bar-section -->
+
+</nav>
+<!-- /.top-bar -->

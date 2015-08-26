@@ -9,3 +9,8 @@ class RegisterForm(Form):
 
     confirm_password = PasswordField('Retype the password again')
     email = TextField('Email Address', [validators.Length(min=6, max=120)])
+
+
+class LoginForm(Form):
+    email = TextField('Email Address', [validators.Length(min=4, max=80)])
+    password = PasswordField('Password', [validators.Required()])

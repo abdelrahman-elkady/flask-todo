@@ -6,12 +6,28 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
 
-    // Cleaning annoying python bytecode files   
+    // Compiling sass
+    sass: {
+      dist: {
+        files: {
+          'app/static/css/main.css': 'app/static/scss/main.scss'
+        }
+      }
+    },
+
+    // Cleaning annoying python bytecode files
     clean: {
       src:["app/**/*.pyc","app/**/*.pyo"]
-    }
+    },
+
+    watch: {
+      files: ['app/static/scss/**/*'],
+      tasks: ['sass'],
+    },
 
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 };
