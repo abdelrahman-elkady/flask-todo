@@ -6,6 +6,7 @@ from app.models import db
 user = Blueprint(
     'user', __name__, template_folder='../templates/user')
 
+
 from flask.ext.login import LoginManager,login_user,login_required,logout_user
 login_manager = LoginManager()
 

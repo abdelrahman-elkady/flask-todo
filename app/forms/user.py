@@ -7,7 +7,7 @@ class RegisterForm(Form):
     password = PasswordField('Password', [validators.Required(), validators.EqualTo(
         'confirm_password', message='Passwords are not matching')])
 
-    confirm_password = PasswordField('Retype the password again')
+    confirm_password = PasswordField('Retype your password')
     email = TextField('Email Address', [validators.Length(min=6, max=120)])
 
 
