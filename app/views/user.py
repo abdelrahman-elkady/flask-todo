@@ -36,7 +36,7 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
 
         # Login and validate the user.
-        if(crypt.check_password_hash(user.password,form.password.data)):
+        if(user is not None and crypt.check_password_hash(user.password,form.password.data)):
             login_user(user)
             flash('Logged in successfully')
             return redirect(url_for('user.index'))
