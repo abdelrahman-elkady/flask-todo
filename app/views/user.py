@@ -22,10 +22,20 @@ def register():
 
     if request.method == 'POST' and form.validate():
         user = User(form.username.data, form.password.data ,form.email.data)
+
+        # FIXME handle unique constraint in more efficient way !
+        if len(User.query.filter_by(username=user.username).all()) > 0 :
+            flash('Username is already taken')
+            return render_template('register.html', form=form)
+
+        if len(User.query.filter_by(email=user.email).all()) > 0 :
+            flash('Email is already taken')
+            return render_template('register.html', form=form)
+
         db.session.add(user)
-        db.session.commit()  # FIXME wanna commit ?
+        db.session.commit()
         flash('Successfully registered')
-        return redirect(url_for('user.index'))
+        return redirect(url_for('user.login'))
 
     return render_template('register.html', form=form)
 
