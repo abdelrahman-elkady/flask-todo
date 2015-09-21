@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
     // Cleaning annoying python bytecode files
     clean: {
-      src:["app/**/*.pyc","app/**/*.pyo"]
+      src:["app/**/*.pyc","app/**/*.pyo","tests/**/*.pyc","tests/**/*.pyo"]
     },
 
     watch: {

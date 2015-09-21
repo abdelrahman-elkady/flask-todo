@@ -8,9 +8,9 @@ from models.user import crypt
 
 csrf = CsrfProtect()
 
-def create_app():
+def create_app(config):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config)
     db.init_app(app)
     csrf.init_app(app)
     crypt.init_app(app)
