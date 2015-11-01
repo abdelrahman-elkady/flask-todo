@@ -9,6 +9,8 @@ user = Blueprint(
 
 from flask.ext.login import LoginManager,login_user,login_required,logout_user
 login_manager = LoginManager()
+login_manager.login_view = 'user.login'
+
 
 @user.route('/')
 def index():
@@ -65,7 +67,6 @@ def login():
 
 
 @user.route("/logout")
-@login_required
 def logout():
     logout_user()
     return redirect(url_for('user.index'))
