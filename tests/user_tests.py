@@ -6,10 +6,8 @@ from app.models.user import User
 
 from .config_test import TestConfig
 
-class BaseTestCase(TestCase):
 
-    SQLALCHEMY_DATABASE_URI = "postgresql:///todo_test"
-    TESTING = True
+class BaseTestCase(TestCase):
 
     def create_app(self):
         app = create_app(TestConfig)
@@ -28,9 +26,9 @@ class UserTest(BaseTestCase):
     def login(self, email, password):
         """ helper for loggin in a user """
         return self.client.post('/login',
-                             data={'email': email, 'password': password},
-                             follow_redirects=True
-                             )
+                                data={'email': email, 'password': password},
+                                follow_redirects=True
+                                )
 
     def logout(self):
         """helper for loggin out a user """
@@ -40,6 +38,7 @@ class UserTest(BaseTestCase):
         """ testing login page is reachable """
         result = self.client.get('/login')
         assert 'Sign in' in result.data
+
 
     def test_login_valid(self):
         """ testing logging in with a valid user """
