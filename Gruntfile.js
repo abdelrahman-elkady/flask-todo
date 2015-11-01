@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
     // Cleaning annoying python bytecode files
     clean: {
-      src:["app/**/*.pyc","app/**/*.pyo"]
+      src: ["app/**/*.pyc", "app/**/*.pyo", "tests/**/*.pyc", "tests/**/*.pyo"]
     },
 
     watch: {
@@ -27,9 +27,19 @@ module.exports = function (grunt) {
       },
     },
 
+    nose: {
+      main: {},
+      options: {
+        virtualenv: 'venv',
+      },
+    },
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-nose');
+
+  grunt.registerTask('test', ['nose', 'clean']);
 };

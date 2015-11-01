@@ -2,8 +2,9 @@ from flask.ext.script import Manager
 from app import create_app
 from app.models import db
 from flask import url_for
+from app.config import Config
 
-app = create_app()
+app = create_app(Config)
 manager = Manager(app)
 
 
