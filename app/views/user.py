@@ -1,13 +1,14 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
+
 from app.models.user import User,crypt
 from app.forms.user import RegisterForm,LoginForm
 from app.models import db
 
+from flask.ext.login import LoginManager,login_user,login_required,logout_user
+
 user = Blueprint(
     'user', __name__, template_folder='../templates/user')
 
-
-from flask.ext.login import LoginManager,login_user,login_required,logout_user
 login_manager = LoginManager()
 login_manager.login_view = 'user.login'
 

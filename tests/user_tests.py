@@ -1,5 +1,6 @@
 from flask.ext.testing import TestCase
 from flask import url_for
+from flask.ext.login import current_user
 
 from app import create_app
 from app.models import db
@@ -17,6 +18,10 @@ class BaseTestCase(TestCase):
 
     def setUp(self):
         db.create_all()
+
+        user = User('test_user', 'test_password', 'testmail@testprovider.com')
+        db.session.add(user)
+        db.session.commit()
 
     def tearDown(self):
         db.session.remove()
@@ -44,10 +49,6 @@ class UserTest(BaseTestCase):
 
     def test_login_valid(self):
         """ testing logging in with a valid user """
-        user = User('test_user', 'test_password', 'testmail@testprovider.com')
-
-        db.session.add(user)
-        db.session.commit()
 
         res = self.login('testmail@testprovider.com', 'test_password')
         self.assert_redirects(res, '/')
@@ -59,10 +60,6 @@ class UserTest(BaseTestCase):
 
     def test_login_invalid(self):
         """ testing logging in with an invalid user """
-        user = User('test_user', 'test_password', 'testmail@testprovider.com')
-
-        db.session.add(user)
-        db.session.commit()
 
         # Wrong password
         res = self.login('testmail@testprovider.com', 'fail_you_test')
@@ -79,3 +76,21 @@ class UserTest(BaseTestCase):
         res = self.client.get('/login')
         self.assert200(res)
         assert 'Username or password is not correct' in res.data
+
+    def test_logout(self):
+        """ testing logging out !"""
+        with self.client:
+            self.login('testmail@testprovider.com', 'test_password')
+            self.assertTrue(current_user.is_authenticated())
+
+            res = self.client.get(url_for('user.logout'))
+            self.assert_redirects(res, url_for('user.index'))
+            self.assertFalse(current_user.is_authenticated())
+
+    def test_logout_without_login(self):
+        """ testing logging out while not logged in """
+        res = self.client.get(url_for('user.logout'))
+        self.assert_redirects(res, url_for('user.index'))
+        self.assertFalse(current_user.is_authenticated())
+
+    
