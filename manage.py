@@ -1,8 +1,9 @@
 from flask.ext.script import Manager
 from app import create_app
-from app.models import db
+from app.database import db
 from flask import url_for
 from app.config import Config
+from app.models import User, List, ListItem
 
 app = create_app(Config)
 manager = Manager(app)
@@ -22,6 +23,7 @@ def drop_db():
 def init_db():
     db.create_all()
 
+
 @manager.command
 def list_routes():
     import urllib
@@ -34,7 +36,8 @@ def list_routes():
 
         methods = ','.join(rule.methods)
         url = url_for(rule.endpoint, **options)
-        line = urllib.unquote("{:40s} {:30s} {}".format(rule.endpoint, methods, url))
+        line = urllib.unquote("{:40s} {:30s} {}".format(
+            rule.endpoint, methods, url))
         output.append(line)
 
     for line in sorted(output):

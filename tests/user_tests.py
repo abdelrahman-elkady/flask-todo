@@ -3,7 +3,7 @@ from flask import url_for
 from flask.ext.login import current_user
 
 from app import create_app
-from app.models import db
+from app.database import db
 from app.models.user import User
 
 

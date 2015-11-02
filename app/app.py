@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for,redirect
 from config import Config
-from models import db
+from database import db
 from views.user import user,login_manager
 from flask_wtf.csrf import CsrfProtect
 from models.user import crypt

@@ -1,3 +1,3 @@
-from flask.ext.sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from .user import User
+from .list import List
+from .list_item import ListItem
