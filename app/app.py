@@ -17,6 +17,6 @@ def create_app(config):
     crypt.init_app(app)
     login_manager.init_app(app)
     app.register_blueprint(user_blueprint)
-    app.register_blueprint(list_blueprint)
+    app.register_blueprint(list_blueprint,url_prefix='/lists')
 
     return app

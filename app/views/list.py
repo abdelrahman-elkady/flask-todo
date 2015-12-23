@@ -9,8 +9,8 @@ from flask.ext.login import login_required, current_user
 list_blueprint = Blueprint(
     'list', __name__, template_folder='../templates/list')
 
-
 @list_blueprint.route('/new',methods=['GET','POST'])
+@login_required
 def new():
     form = NewListForm(request.form)
 
