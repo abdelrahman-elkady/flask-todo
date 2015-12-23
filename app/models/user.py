@@ -6,7 +6,6 @@ from flask.ext.bcrypt import Bcrypt
 
 crypt = Bcrypt()
 
-
 class User(db.Model):
     __tablename__ = 'users'
 
@@ -21,6 +20,7 @@ class User(db.Model):
         self.username = username
         self.set_password(password)
         self.email = email
+        self.lists = []
         self.registered_on = datetime.utcnow()
 
     def __repr__(self):

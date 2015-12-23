@@ -1,27 +1,30 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, abort
 
-from app.models.user import User, crypt
+from app.models import User, List
+from app.models.user import crypt
 from app.forms.user import RegisterForm, LoginForm
 from app.database import db
 
-from flask.ext.login import LoginManager, login_user, login_required, logout_user
+from flask.ext.login import LoginManager, login_user, login_required, logout_user, current_user
 
 import re
 
-user = Blueprint(
+user_blueprint = Blueprint(
     'user', __name__, template_folder='../templates/user')
 
 login_manager = LoginManager()
 login_manager.login_view = 'user.login'
 
 
-@user.route('/')
+@user_blueprint.route('/')
+@login_required
 def index():
-    users = User.query.all()
-    return render_template('index.html', users=users)
+    user = current_user
+    lists = user.lists
+    return render_template('index.html', lists=lists)
 
 
-@user.route('/register', methods=['GET', 'POST'])
+@user_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
 
@@ -45,7 +48,7 @@ def register():
     return render_template('register.html', form=form)
 
 
-@user.route('/login', methods=['GET', 'POST'])
+@user_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
 
     form = LoginForm()
@@ -68,7 +71,7 @@ def login():
     return render_template('login.html', form=form)
 
 
-@user.route("/logout")
+@user_blueprint.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for('user.index'))

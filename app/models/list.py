@@ -17,4 +17,4 @@ class List(db.Model):
         self.created_at = datetime.utcnow()
 
     def __repr__(self):
-        return 'List %r' % self.title
+        return '<List %r>' % self.title

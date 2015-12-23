@@ -1,7 +1,20 @@
 {%extends 'layouts/base.html'%}
 {%block body%}
-<h1 class='text-center'>INDEX</h1>
-  {% for user in users %}
-    <p class='text-center'>{{user.email}}</p>
-  {%endfor%}
+<div class="row">
+
+  {% if not lists %}
+    <h1 class='text-center'>Create a new List</h1>
+
+    <h5 class='text-center'>You currently don't have any lists, create some to view your lists</h5>
+    <a href="#" class="button expand">New List</a>
+  {% else %}
+    {% for a_list in lists %}
+      <h1 class='text-center'>Your Lists</h1>
+      <p class='text-center'>{{a_list.title}}</p>
+    {%endfor%}
+  {% endif %}
+</div>
+<!-- / .row -->
+
+
 {%endblock%}
