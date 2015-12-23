@@ -6,15 +6,16 @@
     <h1 class='text-center'>Create a new List</h1>
 
     <h5 class='text-center'>You currently don't have any lists, create some to view your lists</h5>
-    <a href="#" class="button expand">New List</a>
+    <a href="{{url_for('list.new')}}" class="button expand">New List</a>
   {% else %}
+  <h1 class='text-center'>Your Lists</h1>
     {% for a_list in lists %}
-      <h1 class='text-center'>Your Lists</h1>
       <p class='text-center'>{{a_list.title}}</p>
     {%endfor%}
+
+    <a href="{{url_for('list.new')}}" class="button round small primary bottom right">Create list</a>
   {% endif %}
 </div>
 <!-- / .row -->
-
 
 {%endblock%}

@@ -16,11 +16,11 @@ class User(db.Model):
     lists = db.relationship("List")
     registered_on = db.Column(db.DateTime)
 
-    def __init__(self, username, password, email):
+    def __init__(self, username, password, email,lists=[]):
         self.username = username
         self.set_password(password)
         self.email = email
-        self.lists = []
+        self.lists = lists
         self.registered_on = datetime.utcnow()
 
     def __repr__(self):

@@ -1,0 +1,26 @@
+{%extends 'layouts/base.html' %}
+{% block title %}New list{% endblock %}
+{% from 'helpers/_forms.html' import render_field %}
+
+
+{% block body %}
+
+  <div class="row">
+      <h2 class='text-center'>New list</h2>
+      <form action="" method="post">
+        {{form.csrf_token}}
+
+          <div class="row">
+            <div class="large-12 columns">
+              {%for field in form if field.widget.input_type != 'hidden'%}
+                {{render_field(field)}}
+              {%endfor%}
+            </div>
+          </div>
+
+        <input type="submit" value="Create list" class="button expand">
+      </form>
+      <!-- /form -->
+  </div>
+  <!-- ./row -->
+{% endblock %}
