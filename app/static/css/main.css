@@ -361,6 +361,9 @@ th {
   .nav-user-greet:hover {
     background-color: transparent !important; }
 
+.columns #btn-create-list-rounded {
+  margin-top: 30px; }
+
 .red-link {
   color: #F44336; }
   .red-link:visited {
