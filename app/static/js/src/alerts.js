@@ -1,6 +1,3 @@
-$(document).foundation();
-
-
 // Clearning alerts after 3 seconds
 var alertTimeoutId = setTimeout(function() {
   $('.alert-box a.close').trigger('click');

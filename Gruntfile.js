@@ -15,6 +15,17 @@ module.exports = function(grunt) {
       }
     },
 
+    // Concatinating JS
+    concat: {
+      options: {
+        separator: '\n\n',
+      },
+      dist: {
+        src: ['app/static/js/src/init.js', 'app/static/js/src/*.js'],
+        dest: 'app/static/js/main.js',
+      },
+    },
+
     // Cleaning annoying python bytecode files
     clean: {
       src: ["app/**/*.pyc", "app/**/*.pyo", "tests/**/*.pyc", "tests/**/*.pyo"]
@@ -25,6 +36,11 @@ module.exports = function(grunt) {
         files: ['app/static/scss/**/*'],
         tasks: ['sass'],
       },
+
+      js: {
+        files: ['app/static/js/src/*.js'],
+        tasks: ['concat'],
+      }
     },
 
     nose: {
@@ -40,6 +56,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-nose');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('test', ['nose', 'clean']);
 };
