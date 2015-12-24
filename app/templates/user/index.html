@@ -10,7 +10,9 @@
   {% else %}
   <h1 class='text-center'>Your Lists</h1>
     {% for a_list in lists %}
-      <p class='text-center'>{{a_list.title}}</p>
+      <div class="large-12 columns">
+        <p class='text-center'>{{a_list.title}} <a href="#" class="fi-minus right red-link"></a></p>
+      </div>
     {%endfor%}
 
     <a href="{{url_for('list.new')}}" class="button round small primary bottom right">Create list</a>

@@ -1,6 +1,10 @@
+@import "base/variables.scss";
+
 @import "base/normalize.scss";
 @import "base/main.scss";
 
 @import "partials/nav";
 
-@import "components/buttons.scss"
+@import "components/buttons.scss";
+
+@import "typography/main.scss";

@@ -1,0 +1,11 @@
+.red-link {
+  color: $material-red;
+
+  &:visited {
+    color: $material-red;
+  }
+
+  &:hover {
+    color: darken($material-red, 15%);
+  }
+}

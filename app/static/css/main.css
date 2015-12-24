@@ -361,4 +361,11 @@ th {
   .nav-user-greet:hover {
     background-color: transparent !important; }
 
+.red-link {
+  color: #F44336; }
+  .red-link:visited {
+    color: #F44336; }
+  .red-link:hover {
+    color: #d2190b; }
+
 /*# sourceMappingURL=main.css.map */
