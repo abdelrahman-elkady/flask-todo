@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     {%block head%}
+
     <meta charset="utf-8">
+
     <title>{%block title%}{%endblock%}</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='bower_components/foundation/css/normalize.min.css') }}" >
+
+    <!-- Zurb Foundation stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static',filename='bower_components/foundation/css/foundation.min.css') }}" >
+
+    <!-- Foundation Icons -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='bower_components/foundation-icon-fonts/foundation-icons.css') }}" >
+
     <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+
     {%endblock%}
+    
   </head>
 
   <body>
