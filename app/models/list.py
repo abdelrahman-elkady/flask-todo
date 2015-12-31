@@ -9,7 +9,7 @@ class List(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.String(80))
-    list_items = db.relationship('ListItem')
+    items = db.relationship('Item')
     created_at = db.Column(db.DateTime)
 
     def __init__(self, title):

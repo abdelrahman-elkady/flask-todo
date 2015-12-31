@@ -2,8 +2,9 @@ from app.database import db
 
 from datetime import datetime
 
-class ListItem(db.Model):
-    __tablename__ = "list_items"
+class Item(db.Model):
+    __tablename__ = "items"
+
     id = db.Column(db.Integer, primary_key=True)
     list_id = db.Column(db.Integer, db.ForeignKey('lists.id'))
     content = db.Column(db.Text)

@@ -3,6 +3,7 @@ from config import Config
 from database import db
 from views.user import user_blueprint,login_manager
 from views.list import list_blueprint
+from views.item import item_blueprint
 from models.user import crypt
 from config import csrf
 
@@ -16,5 +17,6 @@ def create_app(config):
     login_manager.init_app(app)
     app.register_blueprint(user_blueprint)
     app.register_blueprint(list_blueprint,url_prefix='/lists')
+    app.register_blueprint(item_blueprint,url_prefix='/items')
 
     return app

@@ -1,7 +1,7 @@
 .red-link {
   color: $material-red;
   cursor: pointer;
-  
+
   &:visited {
     color: $material-red;
   }
@@ -9,4 +9,8 @@
   &:hover {
     color: darken($material-red, 15%);
   }
+}
+
+.text-bold {
+  font-weight: 800;
 }

@@ -2,19 +2,18 @@
 {%block body%}
 <div class="row">
 
-
     {% if not lists %}
       <h1 class='text-center'>Create a new List</h1>
 
       <h5 class='text-center'>You currently don't have any lists, create some to view your lists</h5>
       <a href="{{url_for('list.new')}}" class="button expand">New List</a>
     {% else %}
-    <h1 class='text-center'>Your Lists</h1>
+    <h1 class='text-center text-bold'>Your Lists</h1>
 
     <div class="list-index-wrapper small-12 columns">
       {% for a_list in lists %}
         <div class="small-12 large-12 columns list-item">
-          <p class='text-center'>{{a_list.title}} <span onclick="deleteList($(this),{{a_list.id}})" class="fi-minus right red-link"></span></p>
+          <a href="#" class='text-center'>{{a_list.title}} <span onclick="deleteList($(this),{{a_list.id}})" class="fi-minus right red-link"></span></a>
         </div>
       {%endfor%}
     </div>

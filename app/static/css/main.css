@@ -354,7 +354,8 @@ th {
   padding: 0; }
 
 .main-container {
-  height: 100%; }
+  height: 100%;
+  padding-top: 45px; }
 
 .nav-user-greet {
   cursor: default !important; }
@@ -364,6 +365,22 @@ th {
 .columns #btn-create-list-rounded {
   margin-top: 30px; }
 
+.list-index-wrapper {
+  margin-top: 40px; }
+
+.list-item {
+  background-color: rgba(0, 140, 186, 0.3);
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 15px;
+  float: none !important; }
+  .list-item a {
+    margin: 0;
+    box-sizing: border-box; }
+  .list-item:hover {
+    background-color: rgba(0, 140, 186, 0.4); }
+
 .red-link {
   color: #F44336;
   cursor: pointer; }
@@ -371,5 +388,12 @@ th {
     color: #F44336; }
   .red-link:hover {
     color: #d2190b; }
+
+.text-bold {
+  font-weight: 800; }
+
+.list-item a {
+  font-size: 20px;
+  font-weight: 800; }
 
 /*# sourceMappingURL=main.css.map */

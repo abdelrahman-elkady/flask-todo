@@ -3,7 +3,7 @@ from app import create_app
 from app.database import db
 from flask import url_for
 from app.config import Config
-from app.models import User, List, ListItem
+from app.models import User, List, Item
 
 app = create_app(Config)
 manager = Manager(app)
