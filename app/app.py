@@ -3,11 +3,9 @@ from config import Config
 from database import db
 from views.user import user_blueprint,login_manager
 from views.list import list_blueprint
-from flask_wtf.csrf import CsrfProtect
 from models.user import crypt
+from config import csrf
 
-
-csrf = CsrfProtect()
 
 def create_app(config):
     app = Flask(__name__)

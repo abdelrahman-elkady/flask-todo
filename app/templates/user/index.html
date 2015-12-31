@@ -13,8 +13,8 @@
 
     <div class="list-index-wrapper small-12 columns">
       {% for a_list in lists %}
-        <div class="small-12 large-12 columns">
-          <p class='text-center'>{{a_list.title}} <a href="#" class="fi-minus right red-link"></a></p>
+        <div class="small-12 large-12 columns list-item">
+          <p class='text-center'>{{a_list.title}} <span onclick="deleteList($(this),{{a_list.id}})" class="fi-minus right red-link"></span></p>
         </div>
       {%endfor%}
     </div>

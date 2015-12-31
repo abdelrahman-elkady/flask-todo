@@ -3,6 +3,7 @@ from flask import Blueprint,  render_template, redirect, url_for, request, flash
 from app.models import List
 from app.database import db
 from app.forms.list import NewListForm
+from app.config import csrf
 
 from flask.ext.login import login_required, current_user
 
@@ -27,3 +28,16 @@ def new():
         return redirect(url_for('user.index'))
 
     return render_template('new.html', form=form)
+
+@csrf.exempt
+@list_blueprint.route('/delete/<list_id>',methods=['POST'])
+@login_required
+def delete(list_id):
+
+    a_list = List.query.filter_by(id=list_id).first()
+
+    if a_list:
+        db.session.delete(a_list)
+        db.session.commit()
+
+    return '', 204 # no content

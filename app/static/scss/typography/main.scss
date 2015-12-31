@@ -1,6 +1,7 @@
 .red-link {
   color: $material-red;
-
+  cursor: pointer;
+  
   &:visited {
     color: $material-red;
   }
