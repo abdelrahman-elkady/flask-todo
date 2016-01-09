@@ -1,0 +1,36 @@
+{%extends 'layouts/base.html' %}
+{% block title %}{{a_list.title}}{% endblock %}
+
+{% block body %}
+
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <h2 class='text-center'>{{a_list.title}}</h2>
+
+    <div class="row">
+      <div class="small-12 columns">
+
+        <input type="text" name="item-content" placeholder="Eat a banana">
+
+        <ul>
+          {% for item in items %}
+            <li>
+              {{ item.content }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!-- /.small-12 columns -->
+    </div>
+    <!-- /.row -->
+
+    <div class="small-12 large-12 columns">
+      <a href="#" class="button round small primary bottom right" id="btn-create-item-rounded" onclick="createItem({{a_list.id}})">New item</a>
+    </div>
+
+  </div>
+  <!-- / .small-12 large-12 columns -->
+</div>
+<!-- ./row -->
+
+{% endblock %}
