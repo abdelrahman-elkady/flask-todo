@@ -12,7 +12,7 @@
 
     <div class="list-index-wrapper small-12 columns">
       {% for a_list in lists %}
-        <div class="small-12 large-12 columns list-item">
+        <div class="small-12 large-12 columns list-preview">
 
           <a href="{{ url_for('list.show',list_id=a_list.id) }}" class='text-center'>
             {{a_list.title}} <span onclick="deleteList(event,$(this),{{a_list.id}})" class="fi-minus right red-link"></span>

@@ -368,18 +368,31 @@ th {
 .list-index-wrapper {
   margin-top: 40px; }
 
-.list-item {
+.list-preview {
   background-color: rgba(0, 140, 186, 0.3);
   border-radius: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
   margin: 15px;
   float: none !important; }
-  .list-item a {
+  .list-preview a {
     margin: 0;
     box-sizing: border-box; }
-  .list-item:hover {
+  .list-preview:hover {
     background-color: rgba(0, 140, 186, 0.4); }
+
+.list-items {
+  list-style: none; }
+
+.list-item {
+  font-size: 25px; }
+  .list-item i {
+    font-size: 23px;
+    padding-right: 10px;
+    color: rgba(0, 150, 136, 0.8); }
+    .list-item i:hover {
+      color: #009688;
+      cursor: pointer; }
 
 .red-link {
   color: #F44336;
@@ -392,7 +405,7 @@ th {
 .text-bold {
   font-weight: 800; }
 
-.list-item a {
+.list-preview a {
   font-size: 20px;
   font-weight: 800; }
 

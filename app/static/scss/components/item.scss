@@ -1,0 +1,23 @@
+.list-items {
+  list-style: none;
+}
+
+
+.list-item {
+  font-size: 25px;
+
+
+  i {
+
+    font-size: 23px;
+
+    padding-right: 10px;
+    color: rgba($teal, 0.8);
+
+    &:hover {
+      color: rgba($teal, 1);
+      cursor: pointer;
+    }
+
+  }
+}
