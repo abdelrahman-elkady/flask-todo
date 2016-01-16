@@ -1,4 +1,6 @@
-deleteList = function(caller,id) {
+deleteList = function(event,caller,id) {
+  event.preventDefault();
+
   $.ajax({
     url: "/lists/delete/" + id,
     type: "POST",
@@ -9,4 +11,6 @@ deleteList = function(caller,id) {
       console.log(error);
     }
   });
+
+  return false;
 };

@@ -2,7 +2,7 @@ from flask import Blueprint,  render_template, redirect, url_for, request, flash
 
 from app.config import csrf
 
-from app.models import Item
+from app.models import Item,List
 from app.database import db
 
 from flask.ext.login import login_required, current_user
@@ -14,6 +14,18 @@ item_blueprint = Blueprint(
 @csrf.exempt
 @login_required
 def new():
-    print request.get_json()
+    data = request.get_json()
+
+    a_list = List.query.filter_by(id=int(data['list_id'])).first()
+
+    content = data['content']
+
+    item = Item(content)
+
+    a_list.items.append(item)
+
+    db.session.add(a_list)
+    db.session.add(item)
+    db.session.commit()
 
     return '', 204  # no content

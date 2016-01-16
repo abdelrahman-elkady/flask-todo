@@ -15,4 +15,4 @@ class Item(db.Model):
         self.created_at = datetime.utcnow()
 
     def __repr__(self):
-        return 'Item %r' % content[:50]
+        return 'Item %r' % self.content[:50]

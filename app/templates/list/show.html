@@ -10,7 +10,19 @@
     <div class="row">
       <div class="small-12 columns">
 
-        <input type="text" name="item-content" placeholder="Eat a banana">
+
+          <div class="row collapse postfix-round">
+
+            <div class="small-10 columns">
+              <input type="text" class="round" placeholder="Eat a banana" name="item-content">
+            </div>
+            <div class="small-2 columns">
+              <a href="#" class="button postfix round" onclick="createItem({{a_list.id}})">Add</a>
+            </div>
+
+          </div>
+          <!-- ./ row collapse -->
+
 
         <ul>
           {% for item in items %}
@@ -23,10 +35,6 @@
       <!-- /.small-12 columns -->
     </div>
     <!-- /.row -->
-
-    <div class="small-12 large-12 columns">
-      <a href="#" class="button round small primary bottom right" id="btn-create-item-rounded" onclick="createItem({{a_list.id}})">New item</a>
-    </div>
 
   </div>
   <!-- / .small-12 large-12 columns -->

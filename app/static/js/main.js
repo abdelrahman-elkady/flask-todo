@@ -13,6 +13,7 @@ $('.alert-box a.close').click(function() {
 
 createItem = function(list_id) {
   var content = {
+    'list_id':list_id,
     'content': $('input[name=item-content]').val(),
   };
 
@@ -22,7 +23,8 @@ createItem = function(list_id) {
     contentType: "application/json",
     data: JSON.stringify(content),
     success: function(res) {
-      console.log('yaaaaaaay')
+      $('input[name=item-content]').val('');
+      window.location.reload(true); // ineffecient enough :3
     },
     error: function(error) {
       console.log(error);
@@ -32,7 +34,9 @@ createItem = function(list_id) {
 };
 
 
-deleteList = function(caller,id) {
+deleteList = function(event,caller,id) {
+  event.preventDefault();
+
   $.ajax({
     url: "/lists/delete/" + id,
     type: "POST",
@@ -43,4 +47,6 @@ deleteList = function(caller,id) {
       console.log(error);
     }
   });
+
+  return false;
 };
