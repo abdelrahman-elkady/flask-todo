@@ -46,6 +46,11 @@ def delete(list_id):
     a_list = List.query.filter_by(id=list_id).first()
 
     if a_list:
+        items=Item.query.filter_by(list_id=list_id).all()
+
+        for item in items:
+            db.session.delete(item)
+
         db.session.delete(a_list)
         db.session.commit()
 
