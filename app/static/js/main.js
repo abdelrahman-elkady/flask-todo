@@ -40,7 +40,9 @@ deleteItem = function(event,caller,id) {
     url: "/items/delete/" + id,
     type: "POST",
     success: function(res) {
-      caller.closest('li').fadeOut(250);
+      caller.closest('li').css("color","$grey");
+      caller.closest('li').css("text-decoration","line-through");
+      caller.closest('li').fadeOut(400);
     },
     error: function(error) {
       console.log(error);
