@@ -27,7 +27,7 @@
         <ul class="list-items">
           {% for item in items %}
             <li class="list-item">
-              <i class="fi-check"></i>
+              <i class="fi-check" onclick="deleteItem(event,$(this),{{item.id}})"></i>
               {{ item.content }}
             </li>
           {% endfor %}

@@ -19,3 +19,20 @@ createItem = function(list_id) {
   });
 
 };
+
+deleteItem = function(event,caller,id) {
+  event.preventDefault();
+
+  $.ajax({
+    url: "/items/delete/" + id,
+    type: "POST",
+    success: function(res) {
+      caller.closest('li').fadeOut(250);
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
+
+  return false;
+};

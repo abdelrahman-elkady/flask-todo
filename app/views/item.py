@@ -29,3 +29,16 @@ def new():
     db.session.commit()
 
     return '', 204  # no content
+
+@csrf.exempt
+@item_blueprint.route('/delete/<item_id>',methods=['POST'])
+@login_required
+def delete(item_id):
+
+    item = Item.query.filter_by(id=item_id).first()
+
+    if item:
+        db.session.delete(item)
+        db.session.commit()
+
+    return '', 204 # no content
